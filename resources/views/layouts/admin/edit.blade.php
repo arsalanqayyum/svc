@@ -66,12 +66,13 @@
                         </td>
                     </tr>
                 </table>
-
+                @if(json_decode($post->size) != null){
                 <h2>Select sizes</h2>
                 <input type="checkbox" value="s" name="size[]" @php if (in_array('s',json_decode($post->size))){echo 'checked';} @endphp>Small<br>
                 <input type="checkbox" value="m" name="size[]" @php if (in_array('m',json_decode($post->size))){echo 'checked';} @endphp>medium<br>
                 <input type="checkbox" value="l" name="size[]" @php if (in_array('l',json_decode($post->size))){echo 'checked';} @endphp>large<br>
-
+                }
+            @endif
 
                 <h2>Set Featured Image</h2>
                 <img src="{{asset('uploads/images').'/'.$post->image}}" width="320px">

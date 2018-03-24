@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h1><span>{{$getfooter->pluck('title')[9]}}</span></h1>
+            <h1 class="main-heading">{{$getfooter->pluck('title')[9]}}</h1>
         </div>
     </div>
     <div class="row">

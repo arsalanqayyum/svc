@@ -32,7 +32,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1><span>{{$widget->pluck('title')[0]}} <i class="fa fa-tags"></i></span></h1>
+                <h1 class="main-heading">{{$widget->pluck('title')[0]}} <i class="fa fa-tags"></i></h1>
             </div>
         </div>
     </div>
@@ -61,11 +61,12 @@
         </div>
     </div>
 
+    <hr/>
 
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1><span>{{$widget->pluck('title')[1]}}<i class="fa fa-lightbulb-o"></i></span></h1>
+                <h1 class="main-heading">{{$widget->pluck('title')[1]}}<i class="fa fa-lightbulb-o"></i></h1>
             </div>
         </div>
     </div>
@@ -76,10 +77,15 @@
             @foreach($scndsec as $post)
             <div class="col-sm-3">
                 <div class="new-items">
-                    <img src="{{asset('uploads/images').'/'.$post->image}}" class="img-size"/>
-                            {{--<a href="{{url('',[$posts->id])}}">view details</a>--}}
-                    <h4>{{$post->post_title}}</h4>
-                    <p class="price"> {{$post->new_price}} </p>
+                    <div class="background">
+                        <div class="tag">
+                            <span>10% off</span>
+                            <img src="{{asset('uploads/images').'/'.$post->image}}" class="img-size"/>
+                        </div>
+                            <h4>{{$post->post_title}}</h4>
+                            <p class="price"> {{$post->new_price}} </p>
+
+                    </div>
                     <div class="btn-align">
                         <a href="{{url('',[$post->id])}}"> click view </a>
                     </div>
@@ -87,13 +93,21 @@
             </div>
                 @endforeach
         </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="viewall">
+                    <a href="{{url('products',[$post->cats])}}">view all</a>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <hr/>
 
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1><span>Top sales<i class="fa fa-lightbulb-o"></i></span></h1>
+                <h1 class="main-heading">Top sales<i class="fa fa-lightbulb-o"></i></h1>
             </div>
         </div>
     </div>
@@ -143,40 +157,26 @@
         </div>
     </div>
 
+    <hr/>
+
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1><span>Gift Ideas<i class="fa fa-lightbulb-o"></i></span></h1>
+                <h1 class="main-heading">Gift Ideas<i class="fa fa-lightbulb-o"></i></h1>
             </div>
         </div>
         <div class="row">
+            @foreach($third_sec as $post)
             <div class="col-sm-4">
                 <div>
-                    <img src="{{asset('uploads/images/gift1.jpg')}}" width="100%" height="300px">
-                    <h4>birthday gifts</h4>
+                    <img src="{{asset('uploads/images').'/'.$post->image}}" width="100%" height="300px">
+                    <h4>{{$post->post_title}}</h4>
                     <div class="topsale-btn-align">
-                        <a href="">Click View</a>
+                        <a href="{{url('products',[$post->prod_cat])}}">Click View</a>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div>
-                    <img src="{{asset('uploads/images/gift2.jpg')}}" width="100%" height="300px">
-                    <h4>birthday gifts</h4>
-                    <div class="topsale-btn-align">
-                        <a href="">Click View</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div>
-                    <img src="{{asset('uploads/images/gift3.jpg')}}" width="100%" height="300px">
-                    <h4>birthday gifts</h4>
-                    <div class="topsale-btn-align">
-                        <a href="">Click View</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 
@@ -226,7 +226,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <h1><span>{{$widget->pluck('title')[6]}}</span></h1>
+            <h1 class="main-heading">{{$widget->pluck('title')[6]}}</h1>
         </div>
     </div>
     <div class="row">

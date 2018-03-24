@@ -133,16 +133,24 @@ class admin extends Controller
         return view ('layouts.admin.category',compact('viewcat'));
     }
 
-    public function addcategory(){
+    public function addcategory(Request $request){
         $post = new category;
         $post->cats = Input::get('newcat');
+        $file = $request->file('image');
+        $filename = $file->getClientOriginalName();
+        storage::put('uploads/images'.$filename, file_get_contents($request->file('image')->getRealPath()));
+        $post->images = $filename;
         $post->save();
         return redirect()->back();
     }
 
-    public function editcategory($id){
+    public function editcategory($id, Request $request){
         $post = category::query()->findOrFail($id);
         $post->cats = Input::get('cat');
+	    $file = $request->file('image');
+        $filename = $file->getClientOriginalName();
+	    storage::put('uploads/images'.$filename, file_get_contents($request->file('image')->getRealPath()));
+	    $post->images = $filename;
         $post->save();
         return redirect()->back();
     }

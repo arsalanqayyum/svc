@@ -38,13 +38,21 @@ class maincontroller extends Controller
             ->join('category','posts.cats_id','=','category.id')
             ->select('posts.image','posts.sub_title','posts.cats_id','posts.id','category.cats')
             ->where('cats_id','=',1)->take(4)->get();
-        $scndsec = DB::table('posts')->where('cats_id','=',2)->get();
+        $scndsec = DB::table('posts')->join('category','posts.cats_id','=','category.id')->where('cats_id','=',2)->get();
+	    $third_sec = DB::table('posts')
+	                  ->join('category','posts.cats_id','=','category.id')
+		              ->join('prodcat','posts.prod_id','=','prodcat.id')
+	                  ->select('posts.image','posts.post_title','posts.cats_id','posts.id','category.cats','prod_cat')
+	                  ->where('cats_id','=',3)->groupby('prod_id')->get();
         $brands = brand::all();
-        return view('index',compact('newitems','scndsec','widget','brands','sliders'));
+        return view('index',compact('newitems','scndsec','widget','brands','sliders','third_sec'));
     }
 
     public function singlepost($id){
         $getpost = posts::query()->findOrFail($id);
+        $cat_detail = DB::table('posts')
+	        ->join('category','posts.cats_id','=','category.id')->where('posts.id','=',$id)
+	        ->select('category.cats','category.images')->first();
         $related_products =
             DB::table('posts')
                 ->where('prod_id','=',DB::table('posts')
@@ -53,7 +61,7 @@ class maincontroller extends Controller
                     ->get()[0]->prod_id)
                 ->whereNotIn('id', [$id])->take(4)
                 ->get();
-        return view('single',compact('getpost','related_products'));
+        return view('single',compact('getpost','related_products','cat_detail'));
     }
 
     public function getcat($cat){

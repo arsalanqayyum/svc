@@ -34,11 +34,13 @@
 
                 <th>ID</th>
                 <th>Category</th>
+                <th>Category Image</th>
                 <th>Action</th>
                 @foreach($viewcat as $cats)
                 <tr>
                     <td>{{$cats->id}}</td>
                     <td>{{$cats->cats}}</td>
+                    <td><img src="{{asset('uploads/images').'/'.$cats->images}}" width="250px"> </td>
                     <td>
                         <a href="#" data-toggle="modal" data-target="#editModal_{{$cats->id}}" class="btn btn-success"><i class="fa fa-edit"></i></a>
                         <a href="#" data-toggle="modal" data-target="#deleteModal_{{$cats->id}}" class="btn btn-danger"><i class="fa fa-close"></i></a>
@@ -75,7 +77,7 @@
 
 
             <!-- Edit Modal -->
-            <form method="POST" action="{{route('editcategory',$cats->id)}}">
+            <form method="POST" action="{{route('editcategory',$cats->id)}}" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div id="editModal_{{$cats->id}}" class="modal fade" role="dialog">
                     <div class="modal-dialog">
@@ -88,7 +90,7 @@
                             </div>
                             <div class="modal-body">
                                 <input type="text" class="form-control" name="cat" value="{{$cats->cats}}">
-
+                                <input type="file" name="image">
                             </div>
                             <div class="modal-footer">
                                 <input type="submit" value="Yes" class="btn btn-success">

@@ -166,12 +166,31 @@ h1{
 	}
 }
 
-h1 span{
-	font-family: "Bradley Hand ITC";
+.main-heading{
+	font-family:fantasy;
     color: #333;
-    font-size: 50px;
+    font-size: 45px;
     text-transform: capitalize;
     border-bottom: 1px solid #ec4e6d;
+	letter-spacing: 5px;
+	width: 50%;
+	margin: auto;
+	margin-bottom: 30px;
+	padding-bottom: 10px;
+}
+
+.single-main-heading{
+	font-family:fantasy;
+	color: #333;
+	font-size: 45px;
+	text-transform: capitalize;
+	border-bottom: 1px solid #ec4e6d;
+	letter-spacing: 5px;
+	margin: auto;
+	margin-bottom: 30px;
+	padding-bottom: 10px;
+	margin-top: 25px;
+
 }
 
 @media screen and (max-width:1200px){
@@ -227,6 +246,8 @@ h1 span{
 	font-family: calibri;
 	font-size: 20px;
 	font-weight: bold;
+	color: #fff;
+	margin-top: 307px;
 }
 
 .new-items .price{
@@ -235,34 +256,68 @@ h1 span{
 	font-family: calibri;
 	font-size: 16px;
 	font-weight: lighter;
+	color: #ffffff;
 }
+
 
 .btn-align{
 	margin: auto;
 	display: block;
 	text-align: center;
-	margin-top: 10px;
+	margin-top: -50px;
 	margin-bottom: 50px;
 }
 
 .btn-align a{
-	background-color: #ec4e6d;
-	color: #fff;
+	background-color: #ffffff;
+	color: #000;
 	padding: 10px 30px 10px 30px;
 	text-transform: capitalize;
+	font-weight:bold;
 }
 
 .btn-align a:hover{
-	background-color: #1a1a1a;
+	background-color: transparent;
 	text-decoration: none;
 	color:#fff;
+	border: 1px solid #ffffff;
 }
 
 .img-size{
-	width: 325px;
+	width: 323px;
 	height:290px;
 	margin: auto;
 	display: block;
+	position: relative;
+	z-index: -1;
+}
+
+.background{
+	background-color: #ec4e6d;
+	border: 1px solid #ec4e6d;
+	display: table;
+	position: relative;
+	z-index: -1;
+	width:100%;
+	height:430px;
+}
+
+.background .tag{
+	background-color: #ec4e6d;
+	width: 85px;
+	height: 86px;
+	position: absolute;
+	border-bottom-right-radius: 40px;
+}
+
+.background .tag span{
+	position: absolute;
+	color: #fff;
+	font-size: 21px;
+	font-weight: bold;
+	margin: auto;
+	margin-top: 10px;
+	margin-left: 18px;
 }
 
 .topsale-btn-align{
@@ -707,6 +762,7 @@ h4{
 	margin:auto;
 	text-align:center;
 	margin-top:20px;
+	margin-bottom: 30px;
 }
 
 .circle-align li{
@@ -800,12 +856,46 @@ h3{
 
 .single-pg-bg{
 	background-color:rgba(235, 235, 235, 0.25);
+	margin-bottom: 50px;
 }
 
 .single-pg-bg h1{
 	text-align:left;
 	margin-top:40px;
 	margin-bottom:35px;
+}
+
+.single-pg-bg h4{
+	font-family: calibri;
+	font-size: 20px;
+	font-weight: bold;
+	color: #000;
+	margin-top: 10px;
+}
+
+.single-pg-bg .price{
+	color: #000;
+}
+
+.single-pg-bg .btn-align{
+	margin: auto;
+	display: block;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+.single-pg-bg .btn-align a{
+	background-color: #ec4e6d;
+	color: #ffffff;
+	padding: 10px 30px 10px 30px;
+	text-transform: capitalize;
+	font-weight: bold;
+}
+
+.single-pg-bg .btn-align a:hover{
+	background-color: #000;
+	text-decoration: none;
 }
 
 .single-pg-bg img{
@@ -896,13 +986,28 @@ h3{
 }
 
 .breadcrumb{
-	background-color: #ec4e6d !important;
+	background-color: #ec4e6dc2 !important;
+	width: 100%;
+	height: 400px;
+	position: relative;
+	padding: 0px !important;
 	border-radius: 0px !important;
-	color: #ffffff;
+	margin-top: -55px;
 }
 
 .breadcrumb h4{
-	text-align: left !important;
+	font-size: 70px;
+	color: #fff;
+	font-family: fantasy;
+	letter-spacing: 8px;
+	margin-top: 176px;
+}
+
+.breadcrumb img{
+	width: 100%;
+	height: 400px;
+	position: absolute;
+	z-index: -1;
 }
 
 .list-group-item{
@@ -1053,7 +1158,7 @@ h3{
 
 .mi-slider {
 	position: relative;
-	height: 490px;
+	height: 400px;
 }
 
 .mi-slider ul {
@@ -1377,6 +1482,12 @@ h3{
 	.mi-slider nav {
 		display: none;
 	}
+}
+
+.desc{
+	font-family: calibri;
+	font-size: 16px;
+	font-weight: lighter;
 }
 
 
