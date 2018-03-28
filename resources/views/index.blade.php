@@ -78,12 +78,20 @@
             <div class="col-sm-3">
                 <div class="new-items">
                     <div class="background">
-                        <div class="tag">
-                            <span>10% off</span>
-                            <img src="{{asset('uploads/images').'/'.$post->image}}" class="img-size"/>
-                        </div>
+                        @if($post->discount == null)
+                            <div class="tag-hide">
+                                <span>{{$post->discount}}</span>
+                                <img src="{{asset('uploads/images').'/'.$post->image}}" class="img-size"/>
+                            </div>
+                        @endif
+                        @if($post->discount != null)
+                                <div class="tag">
+                                    <span>{{$post->discount}}</span>
+                                    <img src="{{asset('uploads/images').'/'.$post->image}}" class="img-size"/>
+                                </div>
+                            @endif
                             <h4>{{$post->post_title}}</h4>
-                            <p class="price"> {{$post->new_price}} </p>
+                            <p class="price">Price {{$post->new_price}} </p>
 
                     </div>
                     <div class="btn-align">
@@ -171,6 +179,7 @@
                 <div>
                     <img src="{{asset('uploads/images').'/'.$post->image}}" width="100%" height="300px">
                     <h4>{{$post->post_title}}</h4>
+                    <p class="font-style">lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum lorem ipsumlorem ipsum </p>
                     <div class="topsale-btn-align">
                         <a href="{{url('products',[$post->prod_cat])}}">Click View</a>
                     </div>

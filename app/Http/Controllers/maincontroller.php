@@ -68,10 +68,16 @@ class maincontroller extends Controller
         $getcat = DB::table('posts')
             ->join('category','posts.cats_id','=','category.id')
             ->join('prodcat','posts.prod_id','=','prodcat.id')
-            ->select('posts.id','posts.image','posts.sub_title')
             ->where('cats','=',$cat)
             ->orwhere('prod_cat','=',$cat)
+	        ->select('posts.id','post_title','discount','new_price','posts.image')
             ->get();
+	    $cat_detail = DB::table('posts')
+	                    ->join('category','posts.cats_id','=','category.id')
+		                ->join('prodcat', 'posts.prod_id','=','prodcat.id')
+		                ->where('category.cats','=',$cat)
+		                ->orwhere('prod_cat','=',$cat)
+	                    ->select('category.cats','category.images','prod_cat')->first();
         $sidecats = DB::table('category')
             ->join('posts','category.id','=','posts.cats_id')
             ->select(DB::raw('count(*) as counter, cats_id'),'category.cats','posts.prod_id')
@@ -82,7 +88,12 @@ class maincontroller extends Controller
             ->select(DB::raw('count(*) as counter, posts.prod_id'),'prodcat.prod_cat','posts.prod_id')
             ->groupby('prodcat.prod_cat')
             ->get();
-        return view('products',compact('getcat','sidecats','prodcat','cat'));
+        $topsale = DB::table('posts')
+                     ->join('category','posts.cats_id','=','category.id')
+                     ->where('category.id','=',4)
+                     ->select('posts.id','posts.image','post_title','new_price','discount')
+                     ->get();
+        return view('products',compact('getcat','sidecats','prodcat','cat','cat_detail','topsale'));
     }
 
     public function aboutpage(){

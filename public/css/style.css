@@ -51,8 +51,11 @@
 	width:100%;
 	display:block;
 	visibility:visible;
-	background-color: #fff;
+	background-color: #ffffffde;
 	z-index:1;
+	-webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.35);
+	-moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.35);
+	box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.35);
 }
 
 @media screen and (max-width:1201px){
@@ -73,9 +76,17 @@
 	margin-top:-35px;
 }
 
+.affix .navbar-default .navbar-nav > li > a{
+	color: #000 !important;
+
+}
+
 .navbar-default{
-	background-color:transparent !important;
-	border:none !important;
+	background-color: #ec4e6d !important;
+	border: none !important;
+	border-radius: 0px !important;
+	padding-top: 8px;
+	padding-bottom: 8px;
 }
 
 .navbar-default .navbar-nav > .active > a{
@@ -84,16 +95,18 @@
 
 .navbar-default .navbar-nav > li > a {
 	font-family:calibri;
-	font-weight:normal;
+	font-weight:bold;
 	text-transform:uppercase;
-	font-size:20px;
-	color:#666 !important;
+	font-size:16px;
+	color: #ffffff !important;
+	border: 1px solid #ec4e6d;
+	margin: auto;
 }
 
 .navbar-default .navbar-nav > li > a:hover{
-	color:#C03 !important;
 	text-decoration:none;
 	transition:ease-in-out 0.3s;
+	border: 1px solid #ffffff;
 }
 
 @media screen and (max-width:1200px){
@@ -127,11 +140,11 @@
 }
 
 .logo{
-	background-image: url(logo.png);
+	background-image: url(logo.jpg);
+	background-repeat: no-repeat;
     width: 189px;
-    height: 189px;
-	margin:auto;
-	margin-top:35px;
+    height: 115px;
+	margin-top:-20px;
 	display:block;
 }
 
@@ -143,9 +156,8 @@
 }
 
 .logo2{
-	position: absolute;
     width: 100px;
-    margin-top: -19px;
+    margin-top: -26px;
 }
 
 h1{
@@ -224,9 +236,10 @@ h1{
 }
 
 .slider{
-	top: -55px;
     position: relative;
     border-top: 2px solid #dedede;
+	top:-22px;
+	z-index: -1;
 }
 
 @media screen and (max-width:450px){
@@ -248,6 +261,7 @@ h1{
 	font-weight: bold;
 	color: #fff;
 	margin-top: 307px;
+	margin-bottom: 0px;
 }
 
 .new-items .price{
@@ -272,8 +286,10 @@ h1{
 	background-color: #ffffff;
 	color: #000;
 	padding: 10px 30px 10px 30px;
-	text-transform: capitalize;
-	font-weight:bold;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: calibri;
+	letter-spacing: 1px;
 }
 
 .btn-align a:hover{
@@ -284,12 +300,75 @@ h1{
 }
 
 .img-size{
-	width: 323px;
+	width: 326px;
 	height:290px;
 	margin: auto;
 	display: block;
 	position: relative;
 	z-index: -1;
+}
+
+.prod-img-size{
+	max-width: 250px;
+	width: 250px;
+	height: 250px;
+	margin: auto;
+	display: block;
+	position: relative;
+	z-index: -1;
+}
+
+.prod-background{
+	background-color: #ec4e6d;
+	border: 1px solid #ec4e6d;
+	display: table;
+	position: relative;
+	z-index: -1;
+	width: 100%;
+	height: 375px;
+}
+
+.prod-background h4{
+	font-family: calibri;
+	font-size: 20px;
+	font-weight: bold;
+	color: #fff;
+	margin-top: 260px;
+	margin-bottom: 0px;
+}
+
+.prod-background .tag{
+	background-color: #ec4e6d;
+	width: 85px;
+	height: 86px;
+	position: absolute;
+	border-bottom-right-radius: 40px;
+}
+
+.prod-background .tag span{
+	position: absolute;
+	color: #fff;
+	font-size: 21px;
+	font-weight: bold;
+	margin: auto;
+	margin-top: 10px;
+	margin-left: 18px;
+}
+
+.prod-background .tag-hide{
+	width: 85px;
+	height: 86px;
+	position: absolute;
+	border-bottom-right-radius: 40px;
+}
+
+.prod-background .price{
+	margin: auto;
+	text-align: center;
+	font-family: calibri;
+	font-size: 16px;
+	font-weight: lighter;
+	color: #ffffff;
 }
 
 .background{
@@ -298,12 +377,19 @@ h1{
 	display: table;
 	position: relative;
 	z-index: -1;
-	width:100%;
-	height:430px;
+	width: 100%;
+	height: 430px;
 }
 
 .background .tag{
 	background-color: #ec4e6d;
+	width: 85px;
+	height: 86px;
+	position: absolute;
+	border-bottom-right-radius: 40px;
+}
+
+.background .tag-hide{
 	width: 85px;
 	height: 86px;
 	position: absolute;
@@ -332,6 +418,10 @@ h1{
 	padding: 8px 45px 8px 45px;
 	color: #252324;
 	text-transform: uppercase;
+	font-family: calibri;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 1px;
 }
 
 .topsale-btn-align a:hover{
@@ -1015,6 +1105,15 @@ h3{
 	text-transform: uppercase;
 }
 
+.list-group-item h4{
+	letter-spacing: 3px;
+	color: #ffffff;
+}
+
+.listgroup-bg{
+	background-color: #f07890 !important;
+}
+
 .list-group-item a{
 	color: #4e4b4c !important;
 }
@@ -1490,4 +1589,113 @@ h3{
 	font-weight: lighter;
 }
 
+.side-panel-span{
+	display: inline-block;
+	margin: auto;
+	padding-top: 10px;
+	margin-left: 10px;
+}
+
+.side-panel-span-height{
+	max-height: 200px;
+	overflow: auto;
+}
+
+.side-panel-span h5{
+	margin: auto;
+	font-weight: bold;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+
+.side-panel-span p{
+	font-weight: lighter;
+	margin-top: 2px;
+	color: #848282;
+	margin-bottom: 0px;
+}
+
+.side-panel-span .discount{
+	font-weight: bold;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #f07890 !important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+.font-style{
+	font-family: calibri;
+	font-weight: lighter;
+	margin: auto;
+	text-align: center;
+	font-size: 16px;
+	color: #000;
+}
+
+.filter-btn{
+	background-color: #3a3a3a;
+	border-radius: 0px !important;
+	color: #fff;
+	font-family: calibri;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 15px 20px 15px 20px !important;
+}
+
+.filter-btn:hover{
+	text-decoration: none;
+	color: #ffffff !important;
+}
+
+.dropdown-item{
+	display: block;
+	font-family: calibri;
+	color: #333;
+	font-size: 16px;
+	padding-left: 10px;
+	border-bottom: 1px solid #00000026;
+	line-height: 2.3;
+}
+
+.filter-search{
+	background: transparent;
+	border: 1px solid #0000001f !important;
+	border-radius: 0px !important;
+	font-family: calibri;
+	font-size: 14px;
+	text-transform: uppercase;
+	padding: 15px 20px 15px 20px !important;
+}
+
+.input-group{
+	display: inline-table !important;
+}
+
+.form-control2{
+	border: 1px solid #0000001f !important;
+	border-radius: 0px !important;
+	padding: 15px 20px 15px 20px !important;
+}
+
+.btn:focus{
+	color: #ffffff !important;
+}
 

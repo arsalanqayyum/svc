@@ -77,7 +77,8 @@ class admin extends Controller
         $post->post_content = Input::get('description');
         $post->new_price = Input::get('new_price');
         $post->old_price = Input::get('old_price');
-        $post->cats_id = Input::get('category');
+	    $post->discount = Input::get('discount');
+	    $post->cats_id = Input::get('category');
         $post->prod_id = Input::get('prod_cat');
         $post->size = json_encode(Input::get('size'));
         $file = $request->file('image');
@@ -109,6 +110,7 @@ class admin extends Controller
         $post->post_content = Input::get('description');
         $post->new_price = Input::get('new_price');
         $post->old_price = Input::get('old_price');
+        $post->discount = Input::get('discount');
         $post->cats_id = Input::get('category');
         $post->prod_id = Input::get('prod_cat');
         $post->size = json_encode(Input::get('size'));
@@ -136,10 +138,12 @@ class admin extends Controller
     public function addcategory(Request $request){
         $post = new category;
         $post->cats = Input::get('newcat');
-        $file = $request->file('image');
-        $filename = $file->getClientOriginalName();
-        storage::put('uploads/images'.$filename, file_get_contents($request->file('image')->getRealPath()));
-        $post->images = $filename;
+        if($request->hasFile('image')) {
+	        $file     = $request->file( 'image' );
+	        $filename = $file->getClientOriginalName();
+	        storage::put( 'uploads/images' . $filename, file_get_contents( $request->file( 'image' )->getRealPath() ) );
+	        $post->images = $filename;
+        }
         $post->save();
         return redirect()->back();
     }
@@ -147,10 +151,12 @@ class admin extends Controller
     public function editcategory($id, Request $request){
         $post = category::query()->findOrFail($id);
         $post->cats = Input::get('cat');
-	    $file = $request->file('image');
-        $filename = $file->getClientOriginalName();
-	    storage::put('uploads/images'.$filename, file_get_contents($request->file('image')->getRealPath()));
-	    $post->images = $filename;
+	    if($request->hasFile('image')) {
+		    $file     = $request->file( 'image' );
+		    $filename = $file->getClientOriginalName();
+		    storage::put( 'uploads/images' . $filename, file_get_contents( $request->file( 'image' )->getRealPath() ) );
+		    $post->images = $filename;
+	    }
         $post->save();
         return redirect()->back();
     }

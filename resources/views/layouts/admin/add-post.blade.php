@@ -40,10 +40,12 @@
             <tr>
                 <td><h2>Old Price</h2></td>
                 <td><h2>New Price</h2></td>
+                <td><h2>Discount</h2></td>
             </tr>
             <tr>
                 <td><input type="text" placeholder="Old Price" name="old_price" class="form-control"> </td>
                 <td><input type="text" placeholder="New Price" name="new_price" class="form-control"> </td>
+                <td><input type="text" placeholder="discount" name="discount" class="form-control"> </td>
             </tr>
             <tr>
                 <td><h2>Category</h2></td>
